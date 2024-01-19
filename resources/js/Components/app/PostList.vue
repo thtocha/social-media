@@ -51,12 +51,15 @@ import PostItem from "@/Components/app/PostItem.vue";
                 `,
         created_at: '2024-02-22 22:22'
     }
+
+    defineProps({
+        posts: Array
+    })
 </script>
 
 <template>
     <div class="flex-1 overflow-auto">
-        <PostItem :post="post1"/>
-        <PostItem :post="post2"/>
+        <PostItem v-for="post of posts" :key="post.id" :post="post"/>
     </div>
 </template>
 
